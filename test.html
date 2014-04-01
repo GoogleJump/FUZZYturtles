@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<title>splitTab</title>
+<script src="calculate.js"></script>
+</head>
+
+<body>
+	<h1 align="center">splitTab - A fun new way to dine with friends!</h1>
+	<form name="Split and Tip" onsubmit="return calculateTip()" method="post">
+		<h1>Enter the total: <input type="text" name="total" id="total" ></h1>
+		<h1>Enter the number of guests: <input type="text" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+		<h2>Enter desired tip percentage: </h2>
+			<input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
+			<input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
+			<!--Input other: <input type="test" name="tip" id="custom"><br>-->
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
