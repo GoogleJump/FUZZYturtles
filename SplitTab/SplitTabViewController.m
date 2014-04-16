@@ -9,10 +9,31 @@
 #import "SplitTabViewController.h"
 
 @interface SplitTabViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *guestsLabel;
+@property (nonatomic) int numGuests;
 @end
 
 @implementation SplitTabViewController
+
+
+- (void)setNumGuests:(int)numGuests
+{
+    //make sure there is always at least 1 guest to avoid dividing by 0
+    if (numGuests > 0) {
+        _numGuests = numGuests;
+    } else {
+        _numGuests = 1;
+    }
+    self.guestsLabel.text = [NSString stringWithFormat:@"Guests: %d", self.numGuests];
+}
+
+- (IBAction)touchAddGuest:(id)sender {
+    self.numGuests++;
+}
+
+- (IBAction)touchSubtractGuest:(id)sender {
+    self.numGuests--;
+}
 
 - (void)viewDidLoad
 {

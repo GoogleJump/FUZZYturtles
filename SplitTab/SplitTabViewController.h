@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SplitTabViewController : UIViewController
+@interface SplitTabViewController : UIViewController <UITextFieldDelegate>
+
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+//- (IBAction) clickedBackground;
 
 @end
