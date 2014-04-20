@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>splitTab</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="calculate.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+
+	 <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="home.html">Home</a></li>
+                <li><a href="getstarted.html">Get Started</a></li>
+              </ul>
+            </div>
+          </div>
+         </div>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
+
+
+<form name="Split and Tip" onsubmit="return calculateTip()" method="post">
+	<h1>Enter the total: <input type="text" name="total" id="total" ></h1>
+	<h1>Enter the number of guests: <input type="text" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+	<h2>Enter desired tip percentage: </h2>
+		<input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
+		<input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
+		
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
