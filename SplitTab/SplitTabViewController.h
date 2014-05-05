@@ -10,6 +10,12 @@
 
 @interface SplitTabViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *billField;
+
+@property (weak, nonatomic) IBOutlet UILabel *billLabel;
+
+-(IBAction)Enter_Bill:(id)sender;
+
 //- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 //- (IBAction) clickedBackground;
 
