@@ -457,6 +457,7 @@
 				9F65928A18F0BFD000427EC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F65928B18F0BFD000427EC4 /* Build configuration list for PBXNativeTarget "SplitTabTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +466,7 @@
 				9F65928D18F0BFD000427EC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

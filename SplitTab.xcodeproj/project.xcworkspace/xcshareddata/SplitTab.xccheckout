@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
+	<string>E4902070-11AE-4AEA-8454-0937CDA616D3</string>
+=======
+	<string>783752FA-B7C1-4DC7-9247-5ABAD91D1A9B</string>
+>>>>>>> FETCH_HEAD
+	<key>IDESourceControlProjectName</key>
+	<string>SplitTab</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+<<<<<<< HEAD
+		<key>A53C4134-710C-4472-8905-BC67B31426BD</key>
+=======
+		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
+>>>>>>> FETCH_HEAD
+		<string>https://github.com/GoogleJump/FUZZYturtles.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SplitTab.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+<<<<<<< HEAD
+		<key>A53C4134-710C-4472-8905-BC67B31426BD</key>
+=======
+		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
+>>>>>>> FETCH_HEAD
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/GoogleJump/FUZZYturtles.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+<<<<<<< HEAD
+	<string>A53C4134-710C-4472-8905-BC67B31426BD</string>
+=======
+	<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
+>>>>>>> FETCH_HEAD
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
+			<string>A53C4134-710C-4472-8905-BC67B31426BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SplitTab</string>
+=======
+			<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
+			<key>IDESourceControlWCCName</key>
+			<string>public</string>
+>>>>>>> FETCH_HEAD
+		</dict>
+	</array>
+</dict>
+</plist>
