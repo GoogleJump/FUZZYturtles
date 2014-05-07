@@ -16,7 +16,5 @@
 
 -(IBAction)Enter_Bill:(id)sender;
 
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField;
-//- (IBAction) clickedBackground;
 
 @end
