@@ -5,43 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<string>E4902070-11AE-4AEA-8454-0937CDA616D3</string>
-=======
-	<string>783752FA-B7C1-4DC7-9247-5ABAD91D1A9B</string>
->>>>>>> FETCH_HEAD
-=======
-	<string>783752FA-B7C1-4DC7-9247-5ABAD91D1A9B</string>
->>>>>>> FETCH_HEAD
+	<string>165B05C6-EB4B-49A9-807C-D22AF6DF6C90</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SplitTab</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<key>A53C4134-710C-4472-8905-BC67B31426BD</key>
-=======
-		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
->>>>>>> FETCH_HEAD
-=======
-		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
->>>>>>> FETCH_HEAD
+		<key>D2B6F289-D5FB-42CF-A6AB-CF59F6523865</key>
 		<string>https://github.com/GoogleJump/FUZZYturtles.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SplitTab.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<key>A53C4134-710C-4472-8905-BC67B31426BD</key>
-=======
-		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
->>>>>>> FETCH_HEAD
-=======
-		<key>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</key>
->>>>>>> FETCH_HEAD
+		<key>D2B6F289-D5FB-42CF-A6AB-CF59F6523865</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -49,36 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<string>A53C4134-710C-4472-8905-BC67B31426BD</string>
-=======
-	<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
->>>>>>> FETCH_HEAD
-=======
-	<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
->>>>>>> FETCH_HEAD
+	<string>D2B6F289-D5FB-42CF-A6AB-CF59F6523865</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<string>A53C4134-710C-4472-8905-BC67B31426BD</string>
+			<string>D2B6F289-D5FB-42CF-A6AB-CF59F6523865</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SplitTab</string>
-=======
-			<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
-			<key>IDESourceControlWCCName</key>
-			<string>public</string>
->>>>>>> FETCH_HEAD
-=======
-			<string>DF9C025E-84A3-4AFF-AA0D-ED7692DD9436</string>
-			<key>IDESourceControlWCCName</key>
-			<string>public</string>
->>>>>>> FETCH_HEAD
 		</dict>
 	</array>
 </dict>
