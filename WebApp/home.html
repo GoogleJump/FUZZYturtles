@@ -22,8 +22,10 @@
           <div class="masthead clearfix">
             <div class="inner">
               <ul class="nav masthead-nav">
-                <li class="active"><a href="home.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="home.html">Advanced Features</a></li>
                 <li><a href="getstarted.html">Get Started</a></li>
+                <li><fb:login-button autologoutlink="true"></fb:login-button></li>
               </ul>
             </div>
           </div>
@@ -35,14 +37,17 @@
 </div>
 
 
-    <form name="Split and Tip" onsubmit="return calculateTip()" method="post">
-        <h1>Enter the total: <input type="text" style="color:black" name="total" id="total" ></h1>
-        <h1>Enter the number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
-        <h2>Enter desired tip percentage: </h2>
+    <form name="Split and Tip" method="post">
+        <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
+        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+        <h2>Desired tip percentage: </h2>
             <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
+            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
+            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
             <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
-
-        <input type="submit" value="Submit">
+    <br>
+    <p>Amount per Guest: <span id='newText'></span> </p>     
+    <!--   <input type="submit" value="Submit">-->
     </form>
 </body>
 </html>
