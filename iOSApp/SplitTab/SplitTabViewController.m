@@ -30,9 +30,9 @@
     
     //print current bill per guest
     if (_numGuests > 0) {
-        billLabel.text = [NSString stringWithFormat:@"%.2f per guest", _totalBill / _numGuests];
+        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill / _numGuests];
     } else {
-        billLabel.text = [NSString stringWithFormat:@"%.2f per guest", _totalBill];
+        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill];
     }
     
 }
@@ -54,7 +54,7 @@
     self.guestsLabel.text = [NSString stringWithFormat:@"Guests: %d", self.numGuests];
     
     //also update the current bill per guest
-    billLabel.text = [NSString stringWithFormat:@"%.2f per guest", _totalBill / _numGuests];
+    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill / _numGuests];
 }
 
 //
