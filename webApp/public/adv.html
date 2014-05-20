@@ -45,31 +45,33 @@
     </div>
 
 
-    <div class="shiftDown">
+    <div class="shiftDownMore">
+    <form name="SplitGuestNames" method="post">
     <div id='TextBoxesGroup'>
       <div id="TextBoxDiv1">
-        <label style="color:white">Guest #1 : </label><input type='textbox' id='textbox1' >
+        <label style="color:white">Guest #1 : </label><input type='textbox' style="color:black"id='textbox1' >
       </div>
     </div>
-    <input type='button' value='Add Guest' id='addButton'>
-    <input type='button' value='Remove Guest' id='removeButton'>
+    <input type='button' button type="button" class="btn btn-default" value='Add Guest' id='addButton'>
+  <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeButton'>
+   <!-- <input type='button' value='Add Guest' id='addButton'> 
+    <input type='button' value='Remove Guest' id='removeButton'> -->
+    </div>
     <!--<input type='button' value='Get TextBox Value' id='getButtonValue'>-->
 
 
- <!--   <form name="Split and Tip" method="post" style="color:white">
-        <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
-        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+
+       <!-- <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
+        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1> -->
         <h2 style="color:white">Desired tip percentage: </h2>
             <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
             <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
             <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
             <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
     <br>
-    <p>Amount per Guest: <span id='newText'></span> </p>     
+    <p>Amount per Guest: <span id='newText'></span> </p>
 
-    </form> -->
+    </form>
     <script src="js/facebook.js"></script>
-
-  </div>
 </body>
 </html>

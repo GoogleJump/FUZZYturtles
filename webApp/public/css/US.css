@@ -3,6 +3,9 @@
 	padding-top: 51px;
 }
 
+.shiftDownMore {
+  padding-top: 71px;
+}
 html,body{height:100%;}
 body {
    background-color: #00FFFF;
@@ -18,12 +21,16 @@ label {
   color:white;
 }
 
-h1{
+h1, h2{
   color:white;
 }
 
 .container {
     height:100%;
+}
+
+div {
+  color:black;
 }
 
 .fill{
@@ -33,4 +40,10 @@ h1{
     background-color:#990000;
     padding:10px;
     color:#efefef;
+}
+
+#TextBoxesGroup{
+  color:white;
+  font-size:22px;
+  padding-bottom:15px;
 }
