@@ -54,9 +54,19 @@
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-
+    
   };
 
+  
+  function handleMe(response) {
+        var divInfo = document.getElementById("divInfo");
+
+        divInfo.innerHTML = "<h1>Me</h1>";
+        divInfo.innerHTML += "Name: " + response.name + "<br />";
+        //divInfo.innerHTML += "<img src=\"" + response.picture + "\" /><br /><br />";
+    }
+
+  
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -75,4 +85,27 @@
       document.getElementById('status').innerHTML = 'Good to see you, ' +
         response.name;
     });
+
+    FB.api("/me?fields=name", handleMe);
+
+    FB.api("/me/friends?fields=name", handleFriends);
+
+    function handleFriends(response) {
+        var divInfo = document.getElementById("divInfo");
+
+        var friends = response.data;
+
+        divInfo.innerHTML += "<h1>My Friends</h1>";
+
+        for (var i = 0; i < 5; i++) {
+            divInfo.innerHTML += friends[i].name + "<br />";
+            //divInfo.innerHTML += "<img src=\"" + friends[i].picture + "\" /><br /><br />";
+        }
+    }
+
+    /*
+    FB.api('/me/friends', function(response) {
+      console.log('Good to see you, ' + response.name + '.');
+    })
+    */
   }
