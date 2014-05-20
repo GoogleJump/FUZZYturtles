@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>splitTab</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/calculate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+  <script src="js/jquery.js"></script>
+      <!--Including jquery -->
+ 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/US.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">splitTab</div>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="adv.html">Advanced Features</a></li>
+            <li><a href="getstarted.html">Get Started</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><fb:login-button autologoutlink="true"></fb:login-button></li>
+          </ul>
+
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="shiftDown">
+    <div id='TextBoxesGroup'>
+      <div id="TextBoxDiv1">
+        <label style="color:white">Guest #1 : </label><input type='textbox' id='textbox1' >
+      </div>
+    </div>
+    <input type='button' value='Add Guest' id='addButton'>
+    <input type='button' value='Remove Guest' id='removeButton'>
+    <!--<input type='button' value='Get TextBox Value' id='getButtonValue'>-->
+
+
+ <!--   <form name="Split and Tip" method="post" style="color:white">
+        <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
+        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+        <h2 style="color:white">Desired tip percentage: </h2>
+            <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
+            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
+            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
+            <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
+    <br>
+    <p>Amount per Guest: <span id='newText'></span> </p>     
+
+    </form> -->
+  </div>
+</body>
+</html>
