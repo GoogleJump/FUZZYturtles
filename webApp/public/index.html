@@ -17,6 +17,7 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -37,7 +38,9 @@
           <ul class="nav navbar-nav navbar-right">
               <li>
                 <!--<fb:login-button autologoutlink="true"></fb:login-button>-->
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope='user_friends'></div>
+                <fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" auto-logout-link="true">
+                </fb:login-button>
+                <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true" data-scope='user_friends'></div> -->
               </li>
           </ul>
 
@@ -52,8 +55,8 @@
   </div>
 
    <form name="Split and Tip" method="post" style="color:white">
-        <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
-        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+        <h1>Total: <input type="text" size="10" style="color:black" name="total" id="total" ></h1>
+        <h1>Number of guests: <input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
         <h2>Desired tip percentage: </h2>
             <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
             <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>

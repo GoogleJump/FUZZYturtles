@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<div id="fb-root"></div>
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -34,8 +34,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li>
-                <!--<fb:login-button autologoutlink="true"></fb:login-button>-->
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope='user_friends'></div>
+                <fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" auto-logout-link="true">
+                </fb:login-button>
               </li>
           </ul>
 
@@ -49,28 +49,31 @@
       <form name="SplitGuestNames" method="post">
       <div id='TextBoxesGroup'>
         <span id="TextBoxDiv1">
-          <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black"id='textbox1' >
-          <label style="color:white">Amount : &nbsp</label><input type='amtbox' style="color:black"id='amtbox1' onkeyup="check()">
+          <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' >
+          <label style="color:white">Amount : &nbsp</label><input type='amtbox' name="amtbox"style="color:black" id='amtbox1' onkeyup="check()">
         </span>
       </div>
       <input type='button' button type="button" class="btn btn-default" value='Add Guest' id='addButton'>
       <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeButton'>
     </div>
-       <!-- <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
-        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests"></h1> -->
        <br>
        <div id="TextBoxesGroup">
        <label style="color:white">Enter tax: </label>
-          <input type=text name="tax" style="color:black">
+          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black">%
         </div>
+
         <div id="TextBoxesGroup" style="color:white">Desired tip percentage: </div>
             <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
             <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
             <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
-            <input type="radio" name="tip" id="other" disabled="disabled" onClick="reply_click(this.id)">Other<br>
+            <span>
+              <input type="radio" name="tip" id="other" disabled="disabled" onClick="checkOther()">Other
+              <input type="text" name="tip" id="otherTip" onkeyup="replyOtherClick(this.id)">
+            </span>
+            
     <br>
     <div id="NewTextBoxesGroup">
-     <p>Amount for Guest 1: <span name='newText' id="1"></span> </p>
+     <p>Amount for Guest 1: <span name='newText' id="newText1"></span> </p>
     </div>
 
     </form>
