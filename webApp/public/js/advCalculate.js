@@ -17,7 +17,8 @@ function checkOther(){
 
 function replyOtherClick(clicked_id)
 {
-	$('#otherTip').hide();
+	var tip = document.getElementById("otherTip").value;
+	tip = tip/100;
 	//var tip = parseFloat(clicked_id)/100; //this.id will pass in 10 or 20, convert to percent
 	var x = document.getElementsByName("amtbox");
 	var len = x.length;
@@ -35,6 +36,7 @@ function replyOtherClick(clicked_id)
 
 function reply_click(clicked_id)
 {
+	$('#otherTip').hide();
 	var tip = parseFloat(clicked_id)/100; //this.id will pass in 10 or 20, convert to percent
 	var x = document.getElementsByName("amtbox");
 	var len = x.length;

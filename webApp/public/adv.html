@@ -59,7 +59,8 @@
        <br>
        <div id="TextBoxesGroup">
        <label style="color:white">Enter tax: </label>
-          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black">%
+          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black" 
+          onkeyup="replyOtherClick(this.id)">%
         </div>
 
         <div id="TextBoxesGroup" style="color:white">Desired tip percentage: </div>
@@ -68,7 +69,7 @@
             <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
             <span>
               <input type="radio" name="tip" id="other" disabled="disabled" onClick="checkOther()">Other
-              <input type="text" name="tip" id="otherTip" onkeyup="replyOtherClick(this.id)">
+              <input type="text" name="tip" class="SmallInput" maxlength="4" id="otherTip" onkeyup="replyOtherClick(this.id)">%
             </span>
             
     <br>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $('#otherTip').hide();
+
   //document.getElementById("otherTip").hide();
   var counter = 2;
 
