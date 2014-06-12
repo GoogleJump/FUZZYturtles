@@ -11,6 +11,8 @@
 @interface SplitTabViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *guestsLabel;
 @property (nonatomic) int numGuests;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (nonatomic) double tipPercent;
 @property (nonatomic) double totalBill;
 @end
 
@@ -29,10 +31,13 @@
     _totalBill = [_billField.text doubleValue];
     
     //print current bill per guest
+    double tipFrac = _tipPercent / 100;
     if (_numGuests > 0) {
-        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill / _numGuests];
+        //also update the current bill per guest
+        double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
+        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
     } else {
-        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill];
+        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill + (_totalBill * tipFrac)];
     }
     
 }
@@ -54,7 +59,9 @@
     self.guestsLabel.text = [NSString stringWithFormat:@"Guests: %d", self.numGuests];
     
     //also update the current bill per guest
-    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill / _numGuests];
+    double tipFrac = _tipPercent / 100;
+    double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
+    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
 }
 
 //
@@ -71,6 +78,39 @@
 //
 - (IBAction)touchSubtractGuest:(id)sender {
     self.numGuests--;
+}
+
+//
+// Sets the tip percentage
+//
+- (void)setTipPercent:(double)tipPercent
+{
+    //make sure tip percentage is always non-negative
+    if (tipPercent >= 0) {
+        _tipPercent = tipPercent;
+    } else {
+        _tipPercent = 0;
+    }
+    
+    //make sure numGuests is nonzero to avoid division by 0
+    if (self.numGuests == 0) {
+        self.numGuests++;
+    }
+    
+    //update the tip percentage listed
+    self.tipLabel.text = [NSString stringWithFormat:@"Tip: %.0f%%", self.tipPercent];
+    
+    //also update the current bill per guest
+    double tipFrac = _tipPercent / 100;
+    double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
+    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
+}
+
+//
+// Called when user presses "+" and increments tip
+//
+- (IBAction)touchAddTip:(id)sender {
+    self.tipPercent++;
 }
 
 //

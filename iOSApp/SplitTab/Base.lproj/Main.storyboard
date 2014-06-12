@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8P-Hc-2xS">
-                                <rect key="frame" x="44" y="87" width="280" height="39"/>
+                                <rect key="frame" x="44" y="87" width="256" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Guests:">
@@ -66,7 +66,7 @@
                                     <color key="titleShadowColor" red="1" green="0.90206422669999997" blue="0.69718518510000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchSubtractGuest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Lh-zz-PUD"/>
+                                    <action selector="touchSubtractGuest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9cA-u2-Pld"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bill:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-Qu-xVM">
@@ -77,10 +77,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwH-BK-Ivt">
-                                <rect key="frame" x="44" y="151" width="48" height="29"/>
+                                <rect key="frame" x="44" y="151" width="256" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Tip: ">
+                                    <fragment content="Tip: 0%">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="24" name="HelveticaNeue"/>
@@ -146,6 +146,25 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Q-KJ-Q87">
+                                <rect key="frame" x="61" y="182" width="23" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchAddTip:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Pqn-mu-AFq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-Jo-HRh">
+                                <rect key="frame" x="94" y="182" width="16" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="-">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18709372148749837" green="1" blue="0.95110674298202513" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="0.90206422669999997" blue="0.69718518510000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,6 +173,7 @@
                         <outlet property="billField" destination="PtW-Lz-ix6" id="6zo-pt-knA"/>
                         <outlet property="billLabel" destination="Pu3-ww-Z0o" id="3m9-Xy-q0Z"/>
                         <outlet property="guestsLabel" destination="Y8P-Hc-2xS" id="UdS-NV-oKs"/>
+                        <outlet property="tipLabel" destination="LwH-BK-Ivt" id="3E1-P0-W1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
