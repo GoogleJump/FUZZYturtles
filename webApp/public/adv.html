@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>splitTab</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/advCalculate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+  <script src="js/jquery.js"></script>
+      <!--Including jquery -->
+ 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/US.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">splitTab</div>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="adv.html">Advanced Features</a></li>
+            <li><a href="getstarted.html">Get Started</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                <fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" auto-logout-link="true">
+                </fb:login-button>
+              </li>
+          </ul>
+
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="shiftDownMore">
+      <form name="SplitGuestNames" method="post">
+      <div id='TextBoxesGroup'>
+        <span id="TextBoxDiv1">
+          <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' >
+          <label style="color:white">Amount : &nbsp</label><input type='amtbox' name="amtbox"style="color:black" id='amtbox1' onkeyup="check()">
+        </span>
+      </div>
+      <input type='button' button type="button" class="btn btn-default" value='Add Guest' id='addButton'>
+      <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeButton'>
+    </div>
+       <br>
+       <div id="TextBoxesGroup">
+       <label style="color:white">Enter tax: </label>
+          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black" 
+          onkeyup="replyOtherClick(this.id)">%
+        </div>
+
+        <div id="TextBoxesGroup" style="color:white">Desired tip percentage: </div>
+            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
+            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
+            <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
+            <span>
+              <input type="radio" name="tip" id="other" disabled="disabled" onClick="checkOther()">Other
+              <input type="text" name="tip" class="SmallInput" maxlength="4" id="otherTip" onkeyup="replyOtherClick(this.id)">%
+            </span>
+            
+    <br>
+    <div id="NewTextBoxesGroup">
+     <p>Amount for Guest 1: <span name='newText' id="newText1"></span> </p>
+    </div>
+
+    </form>
+    <script src="js/facebook.js"></script>
+</body>
+</html>
