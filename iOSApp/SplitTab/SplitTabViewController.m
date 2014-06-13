@@ -114,6 +114,12 @@
 }
 
 //
+// Called when user presses "-" and decrements tip
+- (IBAction)touchSubtractTip:(id)sender {
+    self.tipPercent--;
+}
+
+//
 // To do if needed
 //
 - (void)viewDidLoad
