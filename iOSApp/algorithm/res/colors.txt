@@ -1,0 +1,10 @@
+pastel blue
+72 100 175
+baby blue
+182 226 245
+purple
+130 64 234
+blue
+75 49 234
+olive green
+111 145 122
