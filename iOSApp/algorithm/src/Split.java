@@ -18,18 +18,19 @@ public class Split extends Program {
 	
 	public void run() {
 		ArrayList<Guest> guests = new ArrayList<Guest>();
-		Guest Miranda = new Guest("Miranda", 1, 1, 1, 0);
-		Miranda.setOwed(15);
-		Guest Brooke = new Guest("Brooke", 1, 2, 2, 1);
-		Brooke.setOwed(10);
-		Guest Christina = new Guest("Christina" , 1, 1, 1, 1);
-		Christina.setOwed(20);
-		Guest Yvonne = new Guest("Yvonne", 2, 3, 0, 0);
-		Yvonne.setOwed(5);
-		guests.add(Brooke);
-		guests.add(Christina);
-		guests.add(Miranda);
-		guests.add(Yvonne);
+		
+		String name = readLine("Guest's name (hit enter when done): ");
+		while (!name.equals("")) {
+			int owed = readInt("How much does " + name + " owe (integer value only)? ");
+			int twenties = readInt("How many twenties does " + name + " have? ");
+			int tens = readInt("How many tens does " + name + " have? ");
+			int fives = readInt("How many fives does " + name + " have? ");
+			int ones = readInt("How many ones does " + name + " have? ");
+			Guest guest = new Guest(name, twenties, tens, fives, ones);
+			guest.setOwed(owed);
+			guests.add(guest);
+			name = readLine("Guest's name (hit enter when done): ");
+		}
 		
 		int[] totalCash = sumGuestsCash(guests);
 		for (int i = 0; i < guests.size(); i++) {
@@ -59,32 +60,48 @@ public class Split extends Program {
 		if (guestCash >= guest.getOwed()) {
 			//guest has enough money
 			int change = guestCash - guest.getOwed();
-			System.out.println("totalCash " + Arrays.toString(totalCash));
+			//System.out.println("totalCash " + Arrays.toString(totalCash));
 			if (canMakeExactly(totalCash[0], totalCash[1], totalCash[2], totalCash[3], change)) {
 				int[] guestChange = getBillsToPay(totalCash, change);
 				
-					System.out.print(guest.getName() + " puts down ");
-					for (int i = 0; i < BILLMAX; i++) {
-						if (guest.bills[i] != 0 && guest.bills[i] != guestChange[i]) System.out.print(guest.bills[i] + " " + BILLSTRS[i] + " ");
-					}
-					System.out.print("and takes back ");
-					int count = 0;
-					for (int i = 0; i < BILLMAX; i++) {
-						if (guestChange[i] != 0 && guestChange[i] != guest.bills[i]) {
-							System.out.print(guestChange[i] + " " + BILLSTRS[i] + " ");
-							count++;
+				//if a guest is taking change out of what they put in, they should never put those bills in
+				for (int i = 0; i < BILLMAX; i++) {
+					if (guest.bills[i] == guestChange[i]) {
+						guest.bills[i] = 0;
+						guestChange[i] = 0;
+					} else if (guestChange[i] > 0 && guest.bills[i] > 0) {
+						if (guestChange[i] > guest.bills[i]) {
+							guestChange[i] -= guest.bills[i];
+							guest.bills[i] = 0;
+						} else if (guest.bills[i] > guestChange[i]) {
+							guest.bills[i] -= guestChange[i];
+							guestChange[i] = 0;
 						}
 					}
-					if (count >0) {
-						System.out.println();
-					} else {
-						System.out.println("nothing.");
+				}
+				
+				System.out.print(guest.getName() + " puts down ");
+				for (int i = 0; i < BILLMAX; i++) {
+					if (guest.bills[i] != 0 /*&& guest.bills[i] != guestChange[i]*/) System.out.print(guest.bills[i] + " " + BILLSTRS[i] + " ");
+				}
+				System.out.print("and takes back ");
+				int count = 0;
+				for (int i = 0; i < BILLMAX; i++) {
+					if (guestChange[i] != 0 /*&& guestChange[i] != guest.bills[i]*/) {
+						System.out.print(guestChange[i] + " " + BILLSTRS[i] + " ");
+						count++;
 					}
+				}
+				if (count >0) {
+					System.out.println();
+				} else {
+					System.out.println("nothing");
+				}
 
 			} else {
 				//exact change for this guest can't be made from the available bills
 				System.out.println();
-				System.out.println("Uh oh, can't make the exact change for " + guest.getName());
+				System.out.println("Uh oh, can't make exact change for " + guest.getName());
 			}
 		} else if (guestCash < guest.getOwed()){
 			//guest does not have enough money
