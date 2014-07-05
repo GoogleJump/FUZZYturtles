@@ -13,7 +13,7 @@ import java.util.*;
 
 public class Split extends Program {
 	private static final String[] BILLSTRS = {"twent(ies)", "ten(s)", "five(s)", "one(s)"};
-	private static final int[] BILLINTS = {20, 10, 5, 1};
+	public static final int[] BILLINTS = {20, 10, 5, 1};
 	private static final int BILLMAX = 4;
 	
 	public void run() {
@@ -110,7 +110,7 @@ public class Split extends Program {
 	}
 	
 	//Returns true if a combination of the specified bills exists to make the amount owed
-	private Boolean canMakeExactly(int twenties, int tens, int fives, int ones, int owed) {
+	public Boolean canMakeExactly(int twenties, int tens, int fives, int ones, int owed) {
 		int total = 20 * twenties + 10 * tens + 5 * fives + ones;
 		if (total == owed) return true;
 		if (total < owed) return false;
@@ -133,7 +133,7 @@ public class Split extends Program {
 	//money using  bills from the given array. Updates the given array to no longer include bills
 	//that need to be used to make the amount of money owed.
 	//Assumes the owed amount can be made exactly with the bills in the array
-	private int[] getBillsToPay(int[] bills, int owed) {
+	public int[] getBillsToPay(int[] bills, int owed) {
 		int [] billsPaid = new int[BILLMAX];
 		while (owed >= 20 && bills[0] > 0) {
 			owed -= 20;
