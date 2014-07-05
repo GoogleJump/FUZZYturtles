@@ -17,7 +17,6 @@
 @end
 
 @implementation SplitTabViewController
-@synthesize billLabel;
 
 //
 // Enters the bill from the text field and updates the
@@ -35,9 +34,9 @@
     if (_numGuests > 0) {
         //also update the current bill per guest
         double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
-        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
+        _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
     } else {
-        billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill + (_totalBill * tipFrac)];
+        _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", _totalBill + (_totalBill * tipFrac)];
     }
     
 }
@@ -61,7 +60,7 @@
     //also update the current bill per guest
     double tipFrac = _tipPercent / 100;
     double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
-    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
+    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
 }
 
 //
@@ -103,7 +102,7 @@
     //also update the current bill per guest
     double tipFrac = _tipPercent / 100;
     double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
-    billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
+    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
 }
 
 //
@@ -120,12 +119,15 @@
 }
 
 //
-// To do if needed
+// Additional setup after loading the view
+// Sets the number of guests and tip percentage to
+// default values
 //
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    _numGuests = 2;
+    _tipPercent = 18;
 }
 
 //

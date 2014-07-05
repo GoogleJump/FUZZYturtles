@@ -35,7 +35,7 @@
                                 <rect key="frame" x="44" y="96" width="175" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Guests:">
+                                    <fragment content="Guests: 2">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="24" name="HelveticaNeue"/>
@@ -80,7 +80,7 @@
                                 <rect key="frame" x="44" y="151" width="175" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Tip: 0%">
+                                    <fragment content="Tip: 18%">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="24" name="HelveticaNeue"/>
