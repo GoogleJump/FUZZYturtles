@@ -1,9 +1,9 @@
 
 .shiftDown {
-	padding-top: 51px;
+  padding-top: 51px;
 }
 
-.shiftDownMore {
+.shiftBelowHeader {
   padding-top: 71px;
 }
 html,body{height:100%;}
@@ -53,6 +53,6 @@ div {
 
 #NewTextBoxesGroup {
     color:white;
-  font-size:22px;
-  padding-bottom:15px;
+    font-size:22px;
+    padding-bottom:15px;
 }
