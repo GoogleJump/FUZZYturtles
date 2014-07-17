@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F4E3B8719774EAA0009CD04 /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E3B8619774EAA0009CD04 /* Guest.m */; };
 		9F65925A18F0BFD000427EC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925918F0BFD000427EC4 /* Foundation.framework */; };
 		9F65925C18F0BFD000427EC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925B18F0BFD000427EC4 /* CoreGraphics.framework */; };
 		9F65925E18F0BFD000427EC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925D18F0BFD000427EC4 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F4E3B8519774EAA0009CD04 /* Guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guest.h; sourceTree = "<group>"; };
+		9F4E3B8619774EAA0009CD04 /* Guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guest.m; sourceTree = "<group>"; };
 		9F65925618F0BFD000427EC4 /* SplitTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F65925918F0BFD000427EC4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9F65925B18F0BFD000427EC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 				9F65926818F0BFD000427EC4 /* SplitTabAppDelegate.h */,
 				9F65926918F0BFD000427EC4 /* SplitTabAppDelegate.m */,
 				9F65926B18F0BFD000427EC4 /* Main.storyboard */,
+				9F4E3B8519774EAA0009CD04 /* Guest.h */,
+				9F4E3B8619774EAA0009CD04 /* Guest.m */,
 				9F65926E18F0BFD000427EC4 /* SplitTabViewController.h */,
 				9F65926F18F0BFD000427EC4 /* SplitTabViewController.m */,
 				9F65927118F0BFD000427EC4 /* Images.xcassets */,
@@ -252,6 +257,7 @@
 			files = (
 				9F65927018F0BFD000427EC4 /* SplitTabViewController.m in Sources */,
 				9F65926618F0BFD000427EC4 /* main.m in Sources */,
+				9F4E3B8719774EAA0009CD04 /* Guest.m in Sources */,
 				9F65926A18F0BFD000427EC4 /* SplitTabAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

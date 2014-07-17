@@ -7,6 +7,7 @@
 //
 
 #import "SplitTabViewController.h"
+#import "Guest.h"
 
 @interface SplitTabViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *guestsLabel;
@@ -128,6 +129,10 @@
     [super viewDidLoad];
     _numGuests = 2;
     _tipPercent = 18;
+    
+    Guest *guest = [[Guest alloc] initWithInfo:@"Miranda", 2, 1, 3, 4];
+    [guest sayMyName];
+    [guest setOwed:20];
 }
 
 //
