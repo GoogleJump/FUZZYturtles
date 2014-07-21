@@ -33,20 +33,19 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li>
-                <!--<fb:login-button autologoutlink="true"></fb:login-button>-->
                 <fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" auto-logout-link="true">
                 </fb:login-button>
               </li>
           </ul>
-
-
         </div>
       </div>
     </div>
 
-  <div class="shiftBelowHeader">
-      <img src="images/fuzzyturtles.jpg" alt="fuzzy">
-      <h1 style="color:white">splitTab - A fun new way to dine with friends!</h1>
+  <div class="shiftBelowHeader" style="align:inline">
+      <img src="images/splitTabLogoFinal.png" alt="fuzzy" style="float:left; padding-left:50px; padding-top: 5px">
+      <br />
+      <h1 style="color:white; float:center; padding-right:10px">splitTab - A fun new way to dine with friends!</h1>
+      <br />
   </div>
 
    <form name="Split and Tip" method="post" style="color:white">
@@ -57,19 +56,18 @@
            </tr>
            <tr>
                 <td><h1>Number of guests: &nbsp</h1></td>
-                <td><h1><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" 
-                                             onkeyup="check()"></h1></td>
+                <td><h1><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="enableTipBox()"></h1></td>
             </tr>
         </table>
         <h2>Desired tip percentage: </h2>
         <span style="display:inline">
-            <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">&nbsp10%
-            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">&nbsp15%
-            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">&nbsp18%
-            <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">&nbsp20%
+            <input type="radio" name="tip" id="10" disabled="disabled" onClick="enteredTip(this.id)">&nbsp10%
+            <input type="radio" name="tip" id="15" disabled="disabled" onClick="enteredTip(this.id)">&nbsp15%
+            <input type="radio" name="tip" id="18" disabled="disabled" onClick="enteredTip(this.id)">&nbsp18%
+            <input type="radio" name="tip" id="20" disabled="disabled" onClick="enteredTip(this.id)">&nbsp20%
         </span>
        <br /><br />
-       <p>Amount per Guest: <span id='newText'></span> </p>     
+       <h4>Amount per Guest: <span id='newText'></span> </h4>     
     </form>
 
     <div id="status"></div>

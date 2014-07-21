@@ -4,11 +4,11 @@
   <title>splitTab</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
   <script src="js/advCalculate.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-    <script src="js/jquery.js"></script>
+  <script src="js/jquery.js"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/US.css" rel="stylesheet" type="text/css">
+  <link href="css/US.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -40,42 +40,43 @@
       </div>
     </div>
 
-
     <div class="shiftBelowHeader">
-      <form name="SplitGuestNames" method="post">
-      <div id='TextBoxesGroup'>
-        <span id="TextBoxDiv1">
-          <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' onblur="updateNameBox()">
-          <label style="color:white">Amount : &nbsp</label><input type='amtbox' name="amtbox"style="color:black" id='amtbox1' onkeyup="check()">
-          <span class="glyphicon glyphicon-plus-sign" id='addAmountButton1'></span>
-        </span>
-      </div>
-      <input type='button' button type="button" class="btn btn-success" value='Add Guest' id='addButton'>
-      <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeButton'>
-    </div>
-       <br>
+      <form name="SplitGuestNames" id="SplitGuestNames" method="post">
+        <div id='TextBoxesGroup'>
+          <span id="TextBoxDiv1">
+            <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' onblur="updateNameBox(this.id)">
+            <label style="color:white">Amount : &nbsp</label><input type='amtbox' name="amtbox"style="color:black" id='amtbox1' onkeyup="updateAmountTax()">
+          </span>
+        </div>
+        <input type='button' button type="button" class="btn btn-success" value='Add Guest' id='addGuest'>
+        <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeGuest'>
+       
+        <br /> <br />
+
        <div id="TextBoxesGroup">
        <label style="color:white">Enter tax: </label>
-          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black" 
-          onkeyup="replyOtherClick(this.id)">%
+          <input type=text name="tax" class="SmallInput" id="tax" maxlength="5" style="color:black" onkeyup="updateAmountTax()">%
         </div>
 
         <div id="TextBoxesGroup" style="color:white">Desired tip percentage: </div>
         <div style="color:white">
-            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">&nbsp15%<br>
-            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">&nbsp18%<br>
-            <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">&nbsp20%<br>
-            <span>
-              <input type="radio" name="tip" id="other" disabled="disabled" onClick="checkOther()">&nbspOther
-              <input type="text" name="tip" class="SmallInput" maxlength="4" id="otherTip" onkeyup="replyOtherClick(this.id)">
-            </span>
+          <input type="radio" name="tip" id="15" val=15 onClick="hideOtherTip(); updateTip(this.id)">&nbsp15%<br>
+          <input type="radio" name="tip" id="18" val=18 onClick="hideOtherTip(); updateTip(this.id)">&nbsp18%<br>
+          <input type="radio" name="tip" id="20" val=20 onClick="hideOtherTip(); updateTip(this.id)">&nbsp20%<br>
+          <span>
+            <input type="radio" name="tip" id="other" onClick="showOtherTip()">&nbspOther
+            <div id="otherTipDiv">
+              <input type="text" name="tip" class="SmallInput" maxlength="4" id="otherTip" style="color:black" onkeyup="clickedOther(this.id)"><span style="color:white">%</span>
+            </div>
+          </span>
         </div>
-    <br>
-    <div id="NewTextBoxesGroup">
-     <p>Amount for Guest 1: <span name='newText' id="newText1"></span> </p>
+        <br>
+        <div id="GuestBoxesGroup">
+         <p id="guestName1">Amount for Guest 1: <span name='newText' id="newText1"></span> </p>
+        </div>
+      </form>
     </div>
 
-    </form>
     <script src="js/facebook.js"></script>
 </body>
 </html>

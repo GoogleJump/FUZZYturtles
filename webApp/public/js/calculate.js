@@ -1,4 +1,4 @@
-function check() {
+function enableTipBox() {
     if(document.getElementById("total").value !== "" && document.getElementById("numGuests").value !== "") {
         document.getElementsByName("tip")[0].disabled = false;
         document.getElementsByName("tip")[1].disabled = false;
@@ -10,7 +10,7 @@ function check() {
     }
 }
 
-function reply_click(clicked_id) {
+function enteredTip(clicked_id) {
     var tip = parseFloat(clicked_id)/100, //this.id will pass in 10 or 20, convert to percent
         total = document.getElementById("total").value,
         withtip = total * (1 + tip),
