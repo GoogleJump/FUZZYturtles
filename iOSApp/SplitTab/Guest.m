@@ -14,27 +14,40 @@
 
 @synthesize name = _name;
 @synthesize owed = _owed;
-@synthesize twenties = _twenties;
-@synthesize tens = _tens;
-@synthesize fives = _fives;
-@synthesize ones = _ones;
 
--(id)initWithInfo:(NSString *)newName, int twenties, int tens, int fives, int ones
+-(id)initWithName:(NSString *)newName :(int)twenties :(int)tens :(int)fives :(int)ones
 {
     self = [super init];
     if (self) {
         _name = newName;
-        _twenties = twenties;
-        _tens = tens;
-        _fives = fives;
-        _ones = ones;
+        _billsPaid = [[NSMutableArray alloc] init];
+        _change = [NSMutableArray arrayWithObjects:@0, @0, @0, @0, nil];
+        [_billsPaid addObject:[NSNumber numberWithInt:twenties]];
+        [_billsPaid addObject:[NSNumber numberWithInt:tens]];
+        [_billsPaid addObject:[NSNumber numberWithInt:fives]];
+        [_billsPaid addObject:[NSNumber numberWithInt:ones]];
     }
     return self;
 }
 
--(void) sayMyName
+-(int)twenties
 {
-    NSLog(_name);
+    return [_billsPaid[0] intValue];
+}
+
+-(int)tens
+{
+    return [_billsPaid[1] intValue];
+}
+
+-(int)fives
+{
+    return [_billsPaid[2] intValue];
+}
+
+-(int)ones
+{
+    return [_billsPaid[3] intValue];
 }
 
 @end

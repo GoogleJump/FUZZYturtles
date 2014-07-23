@@ -8,6 +8,7 @@
 
 #import "SplitTabViewController.h"
 #import "Guest.h"
+#import "Split.h"
 
 @interface SplitTabViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *guestsLabel;
@@ -130,9 +131,45 @@
     _numGuests = 2;
     _tipPercent = 18;
     
-    Guest *guest = [[Guest alloc] initWithInfo:@"Miranda", 2, 1, 3, 4];
-    [guest sayMyName];
-    [guest setOwed:20];
+    //Test the bill splitting algorithm with these values
+    NSArray *billStrs = [NSArray arrayWithObjects:@"twenties", @"tens", @"fives", @"ones", nil];
+    Guest *Miranda = [[Guest alloc] initWithName:@"Miranda" :1 :0 :0 :0];
+    Guest *Brooke = [[Guest alloc] initWithName:@"Brooke" :0 :1 :0 :0];
+    NSMutableArray *guests = [[NSMutableArray alloc] init];
+    [guests addObject:Miranda];
+    [guests addObject:Brooke];
+    [Miranda setOwed:10];
+    [Brooke setOwed: 10];
+    
+    //Run the bill splitting algorithm
+    Split *split = [[Split alloc] init];
+    NSMutableArray *totalCash = [split sumGuestsCash:guests];
+    for (Guest *guest in guests) {
+        NSMutableArray *guestChange = [[NSMutableArray alloc] init];
+        if (![split getGuestsActions:guest totalCash:totalCash change:guestChange]) {
+            NSLog(@"Uh oh, there was a problem");
+            return;
+        }
+    }
+    for (Guest * guest in guests) {
+        NSLog(@"%@ puts down", guest.name);
+        for (int i = 0; i < 4; i++) {
+            int num = [guest.billsPaid[i] intValue];
+            if (num > 0) {
+                NSLog(@"%d %@", num, billStrs[i]);
+            }
+        }
+        NSLog(@"and takes back");
+        int count = 0;
+        for (int i = 0; i < 4; i++) {
+            int num = [guest.change[i] intValue];
+            if (num > 0) {
+                NSLog(@"%d %@", num, billStrs[i]);
+                count++;
+            }
+        }
+        if (count == 0) NSLog(@"nothing");
+    }
 }
 
 //
