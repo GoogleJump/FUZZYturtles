@@ -12,16 +12,26 @@
 #import "AllGuests.h"
 
 @interface GuestViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (nonatomic) NSMutableString *name;
+@property (nonatomic) int twenties;
+@property (nonatomic) int tens;
+@property (nonatomic) int fives;
+@property (nonatomic) int ones;
 @end
 
 @implementation GuestViewController
+
+- (IBAction)Enter_Name:(id)sender {
+    [_nameField resignFirstResponder];
+    _name = [_nameField.text mutableCopy];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _name = [[NSMutableString alloc] init];
     }
     return self;
 }
@@ -31,8 +41,13 @@
     AllGuests *sharedGuests = [AllGuests sharedGuests];
     NSMutableArray *guestArray = sharedGuests.guests;
     
-    Guest *g = [[Guest alloc] initWithName:@"Nina" :1 :1 :1 :1];
-    [guestArray addObject:g];
+    _twenties = 5;
+    _tens = 5;
+    _fives = 5;
+    _ones = 5;
+    
+    Guest *guest = [[Guest alloc] initWithName:_name :_twenties :_tens :_fives :_ones];
+    [guestArray addObject:guest];
     
     [self dismissModalViewControllerAnimated: YES];
 }

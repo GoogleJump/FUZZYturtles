@@ -30,6 +30,11 @@
     return self;
 }
 
+-(void)setOwed:(int)owed
+{
+    _owed = owed;
+}
+
 -(int)twenties
 {
     return [_billsPaid[0] intValue];

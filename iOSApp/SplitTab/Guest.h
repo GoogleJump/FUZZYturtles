@@ -14,11 +14,7 @@
 @property (copy) NSString *name;
 @property NSMutableArray *billsPaid;
 @property NSMutableArray *change;
-@property double owed;
-//@property int twenties;
-//@property int tens;
-//@property int fives;
-//@property int ones;
+@property (nonatomic) int owed;
 
 -(id)initWithName:(NSString *)newName :(int)twenties :(int)tens :(int)fives :(int)ones;
 -(int) twenties;

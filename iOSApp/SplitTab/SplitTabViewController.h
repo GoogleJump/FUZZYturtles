@@ -16,6 +16,9 @@
 //label for current bill per guest
 @property (weak, nonatomic) IBOutlet UILabel *billLabel;
 
+//array of guests
+@property (nonatomic) NSMutableArray *guests;
+
 //called when enter is pressed for bill field
 -(IBAction)Enter_Bill:(id)sender;
 

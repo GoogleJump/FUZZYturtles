@@ -9,6 +9,8 @@
 #import "SplitTabViewController.h"
 #import "Guest.h"
 #import "Split.h"
+#import "AllGuests.h"
+#import <math.h>
 
 @interface SplitTabViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *guestsLabel;
@@ -19,6 +21,8 @@
 @end
 
 @implementation SplitTabViewController
+
+@synthesize guests = _guests;
 
 //
 // Enters the bill from the text field and updates the
@@ -120,38 +124,31 @@
     self.tipPercent--;
 }
 
-//
-// Additional setup after loading the view
-// Sets the number of guests and tip percentage to
-// default values
-//
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    _numGuests = 2;
-    _tipPercent = 18;
+//Splits the bill and prints to console
+- (IBAction)SplitBill:(id)sender {
+     AllGuests *sharedGuests = [AllGuests sharedGuests];
+     NSMutableArray *guestArray = sharedGuests.guests;
+     NSArray *billStrs = [NSArray arrayWithObjects:@"twenties", @"tens", @"fives", @"ones", nil];
     
-    //Test the bill splitting algorithm with these values
-    NSArray *billStrs = [NSArray arrayWithObjects:@"twenties", @"tens", @"fives", @"ones", nil];
-    Guest *Miranda = [[Guest alloc] initWithName:@"Miranda" :1 :0 :0 :0];
-    Guest *Brooke = [[Guest alloc] initWithName:@"Brooke" :0 :1 :0 :0];
-    NSMutableArray *guests = [[NSMutableArray alloc] init];
-    [guests addObject:Miranda];
-    [guests addObject:Brooke];
-    [Miranda setOwed:10];
-    [Brooke setOwed: 10];
+    //Get amount owed per guest
+    int numGuests = [guestArray count];
+    double tipFrac = _tipPercent / 100;
+    double bill = (_totalBill + (tipFrac * _totalBill)) / numGuests;
+    int billRound = (int)ceil(bill);
     
     //Run the bill splitting algorithm
     Split *split = [[Split alloc] init];
-    NSMutableArray *totalCash = [split sumGuestsCash:guests];
-    for (Guest *guest in guests) {
+    NSMutableArray *totalCash = [split sumGuestsCash:guestArray];
+    for (Guest *guest in guestArray) {
+        NSLog(@"%@", guest.name);
+        [guest setOwed:billRound];
         NSMutableArray *guestChange = [[NSMutableArray alloc] init];
         if (![split getGuestsActions:guest totalCash:totalCash change:guestChange]) {
             NSLog(@"Uh oh, there was a problem");
             return;
         }
     }
-    for (Guest * guest in guests) {
+    for (Guest * guest in guestArray) {
         NSLog(@"%@ puts down", guest.name);
         for (int i = 0; i < 4; i++) {
             int num = [guest.billsPaid[i] intValue];
@@ -170,6 +167,18 @@
         }
         if (count == 0) NSLog(@"nothing");
     }
+}
+
+//
+// Additional setup after loading the view
+// Sets the number of guests and tip percentage to
+// default values
+//
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _numGuests = 2;
+    _tipPercent = 18;
 }
 
 //
