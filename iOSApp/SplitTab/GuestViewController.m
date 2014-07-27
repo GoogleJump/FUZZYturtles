@@ -13,40 +13,41 @@
 
 @interface GuestViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (nonatomic) NSMutableString *name;
-@property (nonatomic) int twenties;
-@property (nonatomic) int tens;
-@property (nonatomic) int fives;
-@property (nonatomic) int ones;
+@property (weak, nonatomic) IBOutlet UITextField *twentiesField;
+@property (weak, nonatomic) IBOutlet UITextField *tensField;
+@property (weak, nonatomic) IBOutlet UITextField *fivesField;
+@property (weak, nonatomic) IBOutlet UITextField *onesField;
 @end
 
 @implementation GuestViewController
-
-- (IBAction)Enter_Name:(id)sender {
-    [_nameField resignFirstResponder];
-    _name = [_nameField.text mutableCopy];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _name = [[NSMutableString alloc] init];
+        //any additional initialization
     }
     return self;
 }
 
+//Closes modal without adding any guest information
+- (IBAction)tappedCancelCloseModal:(id)sender {
+     [self dismissModalViewControllerAnimated: YES];
+}
+
+//Adds the guest's information to the guests array, closes modal
 - (IBAction)tappedCloseModal:(id)sender {
     
     AllGuests *sharedGuests = [AllGuests sharedGuests];
     NSMutableArray *guestArray = sharedGuests.guests;
+
+    NSString *name = _nameField.text;
+    int twenties = [_twentiesField.text intValue];
+    int tens = [_tensField.text intValue];
+    int fives = [_fivesField.text intValue];
+    int ones = [_onesField.text intValue];
     
-    _twenties = 5;
-    _tens = 5;
-    _fives = 5;
-    _ones = 5;
-    
-    Guest *guest = [[Guest alloc] initWithName:_name :_twenties :_tens :_fives :_ones];
+    Guest *guest = [[Guest alloc] initWithName:name :twenties :tens :fives :ones];
     [guestArray addObject:guest];
     
     [self dismissModalViewControllerAnimated: YES];
@@ -56,8 +57,17 @@
 {
     [super viewDidLoad];
     
-    
-    // Do any additional setup after loading the view.
+    //get keyboards to disappear when user clicks 'Done'
+    [_nameField addTarget:nil action:@selector(dummy:)
+        forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_twentiesField addTarget:nil action:@selector(dummy:)
+         forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_tensField addTarget:nil action:@selector(dummy:)
+         forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_fivesField addTarget:nil action:@selector(dummy:)
+         forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_onesField addTarget:nil action:@selector(dummy:)
+         forControlEvents:UIControlEventEditingDidEndOnExit];
 }
 
 - (void)didReceiveMemoryWarning

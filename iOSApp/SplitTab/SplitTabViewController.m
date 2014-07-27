@@ -48,44 +48,6 @@
 }
 
 //
-// Sets the number of guests (always > 0) and
-// updates the label
-//
-- (void)setNumGuests:(int)numGuests
-{
-    //make sure there is always at least 1 guest to avoid dividing by 0
-    if (numGuests > 0) {
-        _numGuests = numGuests;
-    } else {
-        _numGuests = 1;
-    }
-    
-    //update the number of guests listed
-    self.guestsLabel.text = [NSString stringWithFormat:@"Guests: %d", self.numGuests];
-    
-    //also update the current bill per guest
-    double tipFrac = _tipPercent / 100;
-    double bill = (_totalBill + (tipFrac * _totalBill)) / _numGuests;
-    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
-}
-
-//
-// Called when user presses "-" and increments
-// number of guests
-//
-- (IBAction)touchAddGuest:(id)sender {
-    self.numGuests++;
-}
-
-//
-// Called when user presses "-" and decrements
-// number of guests
-//
-- (IBAction)touchSubtractGuest:(id)sender {
-    self.numGuests--;
-}
-
-//
 // Sets the tip percentage
 //
 - (void)setTipPercent:(double)tipPercent
