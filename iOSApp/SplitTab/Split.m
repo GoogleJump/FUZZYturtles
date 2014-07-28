@@ -55,7 +55,6 @@
 {
     NSMutableArray *totalCash = [NSMutableArray arrayWithObjects:@0, @0, @0, @0, nil];
     for (Guest *guest in guests) {
-        //NSLog(@"%s %d", guest.name, guest.twenties);
         totalCash[0] =  @([totalCash[0] intValue] + guest.twenties);
         totalCash[1] =  @([totalCash[1] intValue] + guest.tens);
         totalCash[2] =  @([totalCash[2] intValue] + guest.fives);

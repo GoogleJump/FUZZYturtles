@@ -86,49 +86,11 @@
     self.tipPercent--;
 }
 
-//Splits the bill and prints to console
+//Prepares to split bill in new modal
 - (IBAction)SplitBill:(id)sender {
      AllGuests *sharedGuests = [AllGuests sharedGuests];
-     NSMutableArray *guestArray = sharedGuests.guests;
-     NSArray *billStrs = [NSArray arrayWithObjects:@"twenties", @"tens", @"fives", @"ones", nil];
-    
-    //Get amount owed per guest
-    int numGuests = [guestArray count];
-    double tipFrac = _tipPercent / 100;
-    double bill = (_totalBill + (tipFrac * _totalBill)) / numGuests;
-    int billRound = (int)ceil(bill);
-    
-    //Run the bill splitting algorithm
-    Split *split = [[Split alloc] init];
-    NSMutableArray *totalCash = [split sumGuestsCash:guestArray];
-    for (Guest *guest in guestArray) {
-        NSLog(@"%@", guest.name);
-        [guest setOwed:billRound];
-        NSMutableArray *guestChange = [[NSMutableArray alloc] init];
-        if (![split getGuestsActions:guest totalCash:totalCash change:guestChange]) {
-            NSLog(@"Uh oh, there was a problem");
-            return;
-        }
-    }
-    for (Guest * guest in guestArray) {
-        NSLog(@"%@ puts down", guest.name);
-        for (int i = 0; i < 4; i++) {
-            int num = [guest.billsPaid[i] intValue];
-            if (num > 0) {
-                NSLog(@"%d %@", num, billStrs[i]);
-            }
-        }
-        NSLog(@"and takes back");
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            int num = [guest.change[i] intValue];
-            if (num > 0) {
-                NSLog(@"%d %@", num, billStrs[i]);
-                count++;
-            }
-        }
-        if (count == 0) NSLog(@"nothing");
-    }
+    [sharedGuests setBill:_totalBill];
+    [sharedGuests setTipPercent:_tipPercent];
 }
 
 //

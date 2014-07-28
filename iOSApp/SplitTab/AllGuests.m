@@ -11,6 +11,9 @@
 @implementation AllGuests
 
 @synthesize guests;
+@synthesize bill;
+@synthesize tipPercent;
+
 
 + (id)sharedGuests {
     static AllGuests *sharedGuests = nil;
