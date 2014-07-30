@@ -23,6 +23,9 @@
 		9F65928318F0BFD000427EC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F65928118F0BFD000427EC4 /* InfoPlist.strings */; };
 		9F65928518F0BFD000427EC4 /* SplitTabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F65928418F0BFD000427EC4 /* SplitTabTests.m */; };
 		EAC422B81989629400A8CA39 /* AllGuests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422B71989629400A8CA39 /* AllGuests.m */; };
+		EAC422BF1989632B00A8CA39 /* GuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BA1989632B00A8CA39 /* GuestViewController.m */; };
+		EAC422C01989632B00A8CA39 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BC1989632B00A8CA39 /* ResultViewController.m */; };
+		EAC422C11989632B00A8CA39 /* Split.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BE1989632B00A8CA39 /* Split.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,12 @@
 		9F65928418F0BFD000427EC4 /* SplitTabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplitTabTests.m; sourceTree = "<group>"; };
 		EAC422B61989629400A8CA39 /* AllGuests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllGuests.h; sourceTree = "<group>"; };
 		EAC422B71989629400A8CA39 /* AllGuests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllGuests.m; sourceTree = "<group>"; };
+		EAC422B91989632B00A8CA39 /* GuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestViewController.h; sourceTree = "<group>"; };
+		EAC422BA1989632B00A8CA39 /* GuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestViewController.m; sourceTree = "<group>"; };
+		EAC422BB1989632B00A8CA39 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		EAC422BC1989632B00A8CA39 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		EAC422BD1989632B00A8CA39 /* Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Split.h; sourceTree = "<group>"; };
+		EAC422BE1989632B00A8CA39 /* Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Split.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +127,12 @@
 		9F65925F18F0BFD000427EC4 /* SplitTab */ = {
 			isa = PBXGroup;
 			children = (
+				EAC422B91989632B00A8CA39 /* GuestViewController.h */,
+				EAC422BA1989632B00A8CA39 /* GuestViewController.m */,
+				EAC422BB1989632B00A8CA39 /* ResultViewController.h */,
+				EAC422BC1989632B00A8CA39 /* ResultViewController.m */,
+				EAC422BD1989632B00A8CA39 /* Split.h */,
+				EAC422BE1989632B00A8CA39 /* Split.m */,
 				EAC422B61989629400A8CA39 /* AllGuests.h */,
 				EAC422B71989629400A8CA39 /* AllGuests.m */,
 				9F65926818F0BFD000427EC4 /* SplitTabAppDelegate.h */,
@@ -261,9 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F65927018F0BFD000427EC4 /* SplitTabViewController.m in Sources */,
+				EAC422C01989632B00A8CA39 /* ResultViewController.m in Sources */,
+				EAC422BF1989632B00A8CA39 /* GuestViewController.m in Sources */,
 				9F65926618F0BFD000427EC4 /* main.m in Sources */,
 				9F4E3B8719774EAA0009CD04 /* Guest.m in Sources */,
 				9F65926A18F0BFD000427EC4 /* SplitTabAppDelegate.m in Sources */,
+				EAC422C11989632B00A8CA39 /* Split.m in Sources */,
 				EAC422B81989629400A8CA39 /* AllGuests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
