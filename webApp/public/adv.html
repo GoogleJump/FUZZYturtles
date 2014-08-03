@@ -28,7 +28,6 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="adv.html">Advanced Features</a></li>
-            <li><a href="getstarted.html">Get Started</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li>
@@ -44,11 +43,11 @@
       <form name="SplitGuestNames" id="SplitGuestNames" method="post">
         <div id='TextBoxesGroup'>
           <span id="TextBoxDiv1">
-            <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' onblur="updateNameBox(this.id)">
+            <label style="color:white">Guest #1 : &nbsp</label><input type='textbox' style="color:black" id='textbox1' onblur="updateNameBox(this.id)" autofocus>
             <label style="color:white">Amount : &nbsp</label><input type='amtbox' name="amtbox"style="color:black" id='amtbox1' onkeyup="updateAmountTax()">
           </span>
         </div>
-        <input type='button' button type="button" class="btn btn-success" value='Add Guest' id='addGuest'>
+        <input type='button' button type="button" class="btn btn-default darkgrey" value='Add Guest' id='addGuest'>
         <input type='button' button type="button" class="btn btn-default" value='Remove Guest' id='removeGuest'>
        
         <br /> <br />
@@ -64,7 +63,7 @@
           <input type="radio" name="tip" id="18" val=18 onClick="hideOtherTip(); updateTip(this.id)">&nbsp18%<br>
           <input type="radio" name="tip" id="20" val=20 onClick="hideOtherTip(); updateTip(this.id)">&nbsp20%<br>
           <span>
-            <input type="radio" name="tip" id="other" onClick="showOtherTip()">&nbspOther
+            <input type="radio" name="tip" id="other" onClick="showOtherTip()" style="margin-left:5px">&nbspOther
             <div id="otherTipDiv">
               <input type="text" name="tip" class="SmallInput" maxlength="4" id="otherTip" style="color:black" onkeyup="clickedOther(this.id)"><span style="color:white">%</span>
             </div>

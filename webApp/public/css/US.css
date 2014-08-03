@@ -13,9 +13,13 @@
 }
 html,body{height:100%;}
 body {
-   background-color: #00FFFF;
+   background-color: #989898;
    text-align: center;
    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.darkgrey {
+  background-color: #D0D0D0;
 }
 
 p {

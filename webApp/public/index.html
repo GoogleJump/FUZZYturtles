@@ -29,7 +29,6 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="adv.html">Advanced Features</a></li>
-            <li><a href="getstarted.html">Get Started</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li>
@@ -51,12 +50,12 @@
    <form name="Split and Tip" method="post" style="color:white">
        <table style="margin:auto">
            <tr>
-               <td><h1 style="margin-left:20px;">Total: </h1></td>
-                <td><h1><input type="text" size="10" style="color:black" name="total" id="total" ></h1></td>
+               <td><h2 style="margin-left:20px;">Total: </h2></td>
+                <td><h2><input type="text" size="10" style="color:black" name="total" id="total" autofocus></h2></td>
            </tr>
            <tr>
-                <td><h1>Number of guests: &nbsp</h1></td>
-                <td><h1><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="enableTipBox()"></h1></td>
+                <td><h2>Number of guests: &nbsp</h1></td>
+                <td><h2><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="enableTipBox()"></h2></td>
             </tr>
         </table>
         <h2>Desired tip percentage: </h2>
@@ -67,7 +66,7 @@
             <input type="radio" name="tip" id="20" disabled="disabled" onClick="enteredTip(this.id)">&nbsp20%
         </span>
        <br /><br />
-       <h4>Amount per Guest: <span id='newText'></span> </h4>     
+       <h2>Amount per Guest: <span id='newText'></span> </h2>     
     </form>
 
     <div id="status"></div>
