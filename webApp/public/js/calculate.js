@@ -18,3 +18,4 @@ function enteredTip(clicked_id) {
         perGuest = Math.round(withtip/numGuests * 100)/100;
     document.getElementById('newText').innerHTML = '$' + perGuest;
 }
+

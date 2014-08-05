@@ -7,8 +7,14 @@ function showOtherTip() {
 	var len = x.length;
 	for (var i =1; i < len+1; i++){
 		$('#newText' + i).text(function(){
-			var total = document.getElementById("amtbox"+i).value,
-                tax = document.getElementById("tax").value;
+			var total = document.getElementById("amtbox"+i).value;
+			if (total == "") { 
+				total = 0; 
+			}
+			else {
+				total = eval(document.getElementById("amtbox"+i).value);
+			}
+            var tax = document.getElementById("tax").value;
 			total = total*tax/100 + total*(1+tip);
 			var perGuest = Math.round(total*100)/100;
 			return '$' + perGuest;
@@ -23,8 +29,14 @@ function clickedOther(clicked_id) {
         len = x.length;
 	for (var i =1; i < len+1; i++) {
 		$('#newText' + i).text(function(){
-			var total = document.getElementById("amtbox"+i).value,
-				tax = document.getElementById("tax").value;
+			var total = document.getElementById("amtbox"+i).value;
+			if (total == "") { 
+				total = 0; 
+			}
+			else {
+				total = eval(document.getElementById("amtbox"+i).value);
+			}
+			var	tax = document.getElementById("tax").value;
 			total = total*tax/100 + total*(1+tip);
 			var perGuest = Math.round(total*100)/100;
 			return ('$' + perGuest);
@@ -59,8 +71,14 @@ function updateTip(clicked_id) {
 	var len = x.length;
 	for (var i =1; i < len+1; i++){
 		$('#newText' + i).text(function(){
-			var total = document.getElementById("amtbox"+i).value,
-                tax = document.getElementById("tax").value;
+			var total = document.getElementById("amtbox"+i).value;
+			if (total == "") { 
+				total = 0; 
+			}
+			else {
+				total = eval(document.getElementById("amtbox"+i).value);
+			}
+            var tax = document.getElementById("tax").value;
 			total = total*tax/100 + total*(1+tip);
 			var perGuest = Math.round(total*100)/100;
 			return '$' + perGuest;
