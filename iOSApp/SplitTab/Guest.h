@@ -15,8 +15,9 @@
 @property NSMutableArray *billsPaid;
 @property NSMutableArray *change;
 @property (nonatomic) int owed;
+@property (nonatomic) int tipPercent;
 
--(id)initWithName:(NSString *)newName :(int)twenties :(int)tens :(int)fives :(int)ones;
+-(id)initWithName:(NSString *)newName tipPercent:(double)tipPercent :(int)twenties :(int)tens :(int)fives :(int)ones;
 -(int) twenties;
 -(int) tens;
 -(int) fives;

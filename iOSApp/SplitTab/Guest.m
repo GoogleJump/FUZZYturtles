@@ -15,11 +15,12 @@
 @synthesize name = _name;
 @synthesize owed = _owed;
 
--(id)initWithName:(NSString *)newName :(int)twenties :(int)tens :(int)fives :(int)ones
+-(id)initWithName:(NSString *)newName tipPercent:(double)tipPercent :(int)twenties :(int)tens :(int)fives :(int)ones
 {
     self = [super init];
     if (self) {
         _name = newName;
+        _tipPercent = tipPercent;
         _billsPaid = [[NSMutableArray alloc] init];
         _change = [NSMutableArray arrayWithObjects:@0, @0, @0, @0, nil];
         [_billsPaid addObject:[NSNumber numberWithInt:twenties]];

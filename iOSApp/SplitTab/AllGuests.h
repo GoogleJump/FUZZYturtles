@@ -12,12 +12,10 @@
 @interface AllGuests : NSObject {
     NSMutableArray *guests;
     double bill;
-    double tipPercent;
 }
 
 @property (nonatomic, retain) NSMutableArray *guests;
 @property (nonatomic) double bill;
-@property (nonatomic) double tipPercent;
 
 + (id)sharedGuests;
 

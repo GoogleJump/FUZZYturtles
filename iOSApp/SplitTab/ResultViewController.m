@@ -33,6 +33,11 @@
     [self splitBill];
 }
 
+//Returns to the home screen
+- (IBAction)goBack:(id)sender {
+    [self dismissModalViewControllerAnimated: YES];
+}
+
 //Splits the bill between the guests. Gets strings for each
 //guest's actions and prints them to the label
 -(void)splitBill
@@ -40,43 +45,55 @@
     AllGuests *sharedGuests = [AllGuests sharedGuests];
     
     //Get amount owed per guest and print in top label
-    double tipFrac = sharedGuests.tipPercent / 100;
+    //double tipFrac = sharedGuests.tipPercent / 100;
     int numGuests = [sharedGuests.guests count];
-    double bill = (sharedGuests.bill + (tipFrac * sharedGuests.bill)) / numGuests;
-    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", bill];
-    
+    double billNoTip = sharedGuests.bill / numGuests;
+    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest before tip", billNoTip];
     NSMutableArray *guestArray = sharedGuests.guests;
     NSArray *billStrs = [NSArray arrayWithObjects:@"twent(ies)", @"ten(s)", @"five(s)", @"one(s)", nil];
     
     //Get amount owed per guest as an int
-    int billRound = (int)ceil(bill);
+    //int billRound = (int)ceil(bill);
+    
+    //Location for text to start being printed
+    int posx = 20;
+    int posy = 120;
     
     //Run the bill splitting algorithm
     Split *split = [[Split alloc] init];
     NSMutableArray *totalCash = [split sumGuestsCash:guestArray];
     for (Guest *guest in guestArray) {
+        double tipFrac = (double) guest.tipPercent / 100;
+        //NSLog(@"%d", guest.tipPercent);
+        double bill = billNoTip + (tipFrac * billNoTip);
+        //NSLog(@"bill %.2f", bill);
+        int billRound = (int)ceil(bill);
         [guest setOwed:billRound];
         NSMutableArray *guestChange = [[NSMutableArray alloc] init];
         if (![split getGuestsActions:guest totalCash:totalCash change:guestChange]) {
-            NSLog(@"Uh oh, there was a problem");
+            [self placeText:@"This bill can't be split with the available cash!" :posx :posy];
             return;
         }
     }
-    int posx = 20;
-    int posy = 75;
+
+    //Print amounts for each guest to put down
     for (Guest * guest in guestArray) {
         NSMutableString *action = [[NSMutableString alloc] initWithString:guest.name];
         [action appendString:@" puts down "];
         for (int i = 0; i < 4; i++) {
             int num = [guest.billsPaid[i] intValue];
             if (num > 0) {
-                [action appendFormat:@"%d %@", num, billStrs[i]];
+                [action appendFormat:@"%d %@, ", num, billStrs[i]];
             }
         }
-        [self placeText:action :posx :posy];
+        //remove last comma
+        NSString *actionTrunc = [action substringToIndex:(action.length - 2)];
+        [self placeText:actionTrunc :posx :posy];
         posy += 25;
     }
     posy += 15;
+    
+    //Print amounts for each guest to take back
     for (Guest *guest in guestArray) {
         NSMutableString *action = [[NSMutableString alloc] initWithString:guest.name];
         [action appendString:@" takes back "];
@@ -84,15 +101,21 @@
         for (int i = 0; i < 4; i++) {
             int num = [guest.change[i] intValue];
             if (num > 0) {
-                [action appendFormat:@"%d %@", num, billStrs[i]];
+                [action appendFormat:@"%d %@ ", num, billStrs[i]];
                 count++;
             }
         }
-        if (count != 0) [self placeText:action :posx :posy];
+        if (count != 0) {
+            //remove last comma
+            NSString *actionTrunc = [action substringToIndex:(action.length - 2)];
+            [self placeText:actionTrunc :posx :posy];
+            posy += 25;
+        }
     }
 
 }
 
+//Creates the given label at the given position
 -(void)placeText:(NSString *)text :(int)x :(int)y {
     UILabel *textLabel;
     
@@ -110,8 +133,6 @@
     
     // Display text
     [self.view addSubview:textLabel];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,7 +149,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    segue.destinationViewController.totalbill = _totalBill;
+    //[segue.destinationViewController placeText:@"test" :25 :200];
 }
 */
 

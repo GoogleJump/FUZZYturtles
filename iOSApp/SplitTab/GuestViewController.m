@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tensField;
 @property (weak, nonatomic) IBOutlet UITextField *fivesField;
 @property (weak, nonatomic) IBOutlet UITextField *onesField;
+@property (weak, nonatomic) IBOutlet UITextField *tipField;
 @end
 
 @implementation GuestViewController
@@ -35,7 +36,7 @@
      [self dismissModalViewControllerAnimated: YES];
 }
 
-//Adds the guest's information to the guests array, closes modal
+/*//Adds the guest's information to the guests array, closes modal
 - (IBAction)tappedCloseModal:(id)sender {
     
     AllGuests *sharedGuests = [AllGuests sharedGuests];
@@ -51,7 +52,7 @@
     [guestArray addObject:guest];
     
     [self dismissModalViewControllerAnimated: YES];
-}
+}*/
 
 - (void)viewDidLoad
 {
@@ -60,6 +61,8 @@
     //get keyboards to disappear when user clicks 'Done'
     [_nameField addTarget:nil action:@selector(dummy:)
         forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_tipField addTarget:nil action:@selector(dummy:)
+         forControlEvents:UIControlEventEditingDidEndOnExit];
     [_twentiesField addTarget:nil action:@selector(dummy:)
          forControlEvents:UIControlEventEditingDidEndOnExit];
     [_tensField addTarget:nil action:@selector(dummy:)
@@ -76,15 +79,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+#pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    AllGuests *sharedGuests = [AllGuests sharedGuests];
+    NSMutableArray *guestArray = sharedGuests.guests;
+    NSString *name = _nameField.text;
+    int tip = [_tipField.text intValue];
+    int twenties = [_twentiesField.text intValue];
+    int tens = [_tensField.text intValue];
+    int fives = [_fivesField.text intValue];
+    int ones = [_onesField.text intValue];
+    Guest *guest = [[Guest alloc] initWithName:name tipPercent:tip :twenties :tens :fives :ones];
+    [guestArray addObject:guest];
 }
-*/
 
 @end
