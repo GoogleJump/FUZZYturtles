@@ -74,8 +74,7 @@
     [super viewDidLoad];
 
     //get keyboards to disappear when user clicks 'Done'
-    //[_billField addTarget:nil action:@selector(dummy:)
-         //forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_billField addTarget:nil action:@selector(dummy:)forControlEvents:UIControlEventEditingDidEndOnExit];
     
     AllGuests *sharedGuests = [AllGuests sharedGuests];
 

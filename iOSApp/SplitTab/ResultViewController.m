@@ -33,11 +33,6 @@
     [self splitBill];
 }
 
-//Returns to the home screen
-- (IBAction)goBack:(id)sender {
-    [self dismissModalViewControllerAnimated: YES];
-}
-
 //Splits the bill between the guests. Gets strings for each
 //guest's actions and prints them to the label
 -(void)splitBill
@@ -48,7 +43,7 @@
     //double tipFrac = sharedGuests.tipPercent / 100;
     int numGuests = [sharedGuests.guests count];
     double billNoTip = sharedGuests.bill / numGuests;
-    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest before tip", billNoTip];
+    _billLabel.text = [NSString stringWithFormat:@"$%.2f per guest", billNoTip];
     NSMutableArray *guestArray = sharedGuests.guests;
     NSArray *billStrs = [NSArray arrayWithObjects:@"twent(ies)", @"ten(s)", @"five(s)", @"one(s)", nil];
     
@@ -57,7 +52,7 @@
     
     //Location for text to start being printed
     int posx = 20;
-    int posy = 120;
+    int posy = 130;
     
     //Run the bill splitting algorithm
     Split *split = [[Split alloc] init];
@@ -70,15 +65,25 @@
         int billRound = (int)ceil(bill);
         [guest setOwed:billRound];
         NSMutableArray *guestChange = [[NSMutableArray alloc] init];
+        
+        //check if algorithm can't solve problem and record it
         if (![split getGuestsActions:guest totalCash:totalCash change:guestChange]) {
             [self placeText:@"This bill can't be split with the available cash!" :posx :posy];
+            NSString *prob;
+            if (sharedGuests.guestNoCash) {
+                prob = [NSString stringWithFormat:@"%@ doesn't have enough cash.", sharedGuests.guestNoCash.name];
+            } else if (sharedGuests.guestNoChange) {
+                prob = [NSString stringWithFormat:@"%@ wouldn't get enough change.", sharedGuests.guestNoChange.name];
+            }
+            [self placeText:prob :posx :(posy + 20)];
             return;
         }
     }
 
     //Print amounts for each guest to put down
     for (Guest * guest in guestArray) {
-        NSMutableString *action = [[NSMutableString alloc] initWithString:guest.name];
+        NSMutableString *action = [[NSMutableString alloc] initWithString:@"-"];
+        [action appendString:guest.name];
         [action appendString:@" puts down "];
         for (int i = 0; i < 4; i++) {
             int num = [guest.billsPaid[i] intValue];
@@ -89,13 +94,13 @@
         //remove last comma
         NSString *actionTrunc = [action substringToIndex:(action.length - 2)];
         [self placeText:actionTrunc :posx :posy];
-        posy += 25;
+        posy += 30;
     }
-    posy += 15;
     
     //Print amounts for each guest to take back
     for (Guest *guest in guestArray) {
-        NSMutableString *action = [[NSMutableString alloc] initWithString:guest.name];
+        NSMutableString *action = [[NSMutableString alloc] initWithString:@"-"];
+        [action appendString:guest.name];
         [action appendString:@" takes back "];
         int count = 0;
         for (int i = 0; i < 4; i++) {
@@ -109,7 +114,7 @@
             //remove last comma
             NSString *actionTrunc = [action substringToIndex:(action.length - 2)];
             [self placeText:actionTrunc :posx :posy];
-            posy += 25;
+            posy += 30;
         }
     }
 
@@ -121,10 +126,11 @@
     
     // Set font and calculate used space
     UIFont *textFont = [UIFont fontWithName:@"Futura" size:12];
-    CGSize textStringSize = [text sizeWithFont:textFont constrainedToSize:CGSizeMake(300,50) lineBreakMode:NSLineBreakByTruncatingTail];
+    CGSize textStringSize = [text sizeWithFont:textFont constrainedToSize:CGSizeMake(300,50) lineBreakMode:UILineBreakModeWordWrap];
     
     // Position of the text
     textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, textStringSize.width, textStringSize.height)];
+    textLabel.numberOfLines = 2;
     
     // Set text attributes
     textLabel.textColor = [UIColor blackColor];
