@@ -69,40 +69,41 @@
 // Sets the number of guests and tip percentage to
 // default values
 //
-- (void)viewDidLoad
+- (void)viewDidLayoutSubviews
 {
-    [super viewDidLoad];
+  [super viewDidLayoutSubviews];
 
     //get keyboards to disappear when user clicks 'Done'
     [_billField addTarget:nil action:@selector(dummy:)forControlEvents:UIControlEventEditingDidEndOnExit];
     
     AllGuests *sharedGuests = [AllGuests sharedGuests];
 
-    //update totalbill listed
-    _totalBill = sharedGuests.bill;
-    _billField.text = [NSString stringWithFormat:@"%.2f", _totalBill];
-    
-    //list the guests
-    int posx = 70;
-    int posy = 175;
-    int count = 0;
-    for (Guest *guest in sharedGuests.guests) {
-        [self placeText:guest.name :posx :posy];
-        posy += 20;
-        
-       /* CGRect frame = [_splitButton frame];
-        frame.origin.y = posy;  // change the location
-        [_splitButton setFrame:frame];
-        */
-        _splitButton.frame = CGRectMake(posx,posy,50,100);
-        
-        count++;
-        //create a second column if necessary
-        if (count == 9) {
-            posx = 180;
-            posy = 175;
-        }
+  //update totalbill listed
+  _totalBill = sharedGuests.bill;
+  _billField.text = [NSString stringWithFormat:@"%.2f", _totalBill];
+
+  //list the guests
+  int posx = 70;
+  int posy = 175;
+  int count = 0;
+  for (Guest *guest in sharedGuests.guests) {
+    [self placeText:guest.name :posx :posy];
+    posy += 20;
+
+    CGRect frame = [_splitButton frame];
+
+    frame.origin.y = posy;  // change the location
+    [_splitButton setFrame:frame];
+
+    //_splitButton.frame = CGRectMake(posx,posy,50,100);
+
+    count++;
+    //create a second column if necessary
+    if (count == 9) {
+      posx = 180;
+      posy = 175;
     }
+  }
 }
 
 //
