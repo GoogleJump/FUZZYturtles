@@ -1,32 +1,75 @@
+function showOtherTip() {
+	document.getElementById("otherTip").value = '';
 
-function check() {
-if(document.getElementById("textbox1").value != "")
-{
-    document.getElementsByName("tip")[0].disabled = false;
-	document.getElementsByName("tip")[1].disabled = false;
-	document.getElementsByName("tip")[2].disabled = false;
-	document.getElementsByName("tip")[3].disabled = false;
+	$('#otherTipDiv').show();
+	var tip = 0;
+	var x = document.getElementsByName("amtbox");
+	var len = x.length;
+	for (var i =1; i < len+1; i++){
+		$('#newText' + i).text(function(){
+			var total = eval(document.getElementById("amtbox"+i).value),
+                tax = document.getElementById("tax").value;
+			total = total*tax/100 + total*(1+tip);
+			var perGuest = Math.round(total*100)/100;
+			return '$' + perGuest;
+		});
+	}
 }
-else
-    document.getElementsByName('tip').disabled = true;
+
+function clickedOther(clicked_id) {
+	var tip = document.getElementById("otherTip").value;
+	tip = tip/100;
+	var x = document.getElementsByName("amtbox"),
+        len = x.length;
+	for (var i =1; i < len+1; i++) {
+		$('#newText' + i).text(function(){
+			var total = eval(document.getElementById("amtbox"+i).value),
+				tax = document.getElementById("tax").value;
+			total = total*tax/100 + total*(1+tip);
+			var perGuest = Math.round(total*100)/100;
+			return ('$' + perGuest);
+		});
+	}
 }
 
+function updateAmountTax() {
+	//$('#otherTipDiv').hide();
+	//$('#otherTip').innerHTML = "";
+	var radios = $("input[type='radio']");
+	var checkRadios = radios.filter(":checked"); //Have to check for other case!!!!
+	var otherTip = document.getElementById("otherTip").value;
 
-function reply_click(clicked_id)
-{
+	var tip = 0;
+	if (checkRadios.length > 0){
+		tip = checkRadios[0].id;
+		if (tip === "other") {
+			tip = otherTip;
+		}
+	}
+
+	return updateTip(tip);
+}
+function hideOtherTip() {
+	$('#otherTipDiv').hide();
+}
+
+function updateTip(clicked_id) {
 	var tip = parseFloat(clicked_id)/100; //this.id will pass in 10 or 20, convert to percent
-	for each textbox
-		calculate total
-		update newText box
-	/*var total = document.getElementById("total").value;
-	var withtip = total * (1+tip);
-	var numGuests = document.getElementById("numGuests").value;
-	var perGuest = Math.round(withtip/numGuests * 100)/100;*/
-	//alert(perGuest);
-	//var formInput = perGuest;
-	//document.getElementById('newText').innerHTML = perGuest;
+	var x = document.getElementsByName("amtbox");
+	var len = x.length;
+	for (var i =1; i < len+1; i++){
+		$('#newText' + i).text(function(){
+			var total = eval(document.getElementById("amtbox"+i).value),
+                tax = document.getElementById("tax").value;
+			total = total*tax/100 + total*(1+tip);
+			var perGuest = Math.round(total*100)/100;
+			return '$' + perGuest;
+		});
+	}
 }
 
-$('div', $('div#TextBoxesGroup')).each(function() {
-    console.log($(this).attr('textbox' + counter)); 
-});
+function updateNameBox(currId) {
+	var name = document.getElementById(currId).value;
+	var counter = currId.replace('textbox','');
+	$('#guestName'+counter).html('Amount for ' + name + ': ' + '<span name="newText" id="newText' + counter + '"></span>' );
+}

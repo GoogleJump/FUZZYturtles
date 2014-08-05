@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
-	<title>splitTab</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="js/calculate.js"></script>
+  <meta charset="utf-8">
+  <title>splitTab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/calculate.js"></script>
   <script>
-  Parse.initialize("8EYSbD4z6Xec8ffYVi4bZThBjykFWdcG9Jj67qOA", "vJdN9kfPJPZhEKd6ggcmUezTGzV68VmtQqBGWvr6");
+      Parse.initialize("8EYSbD4z6Xec8ffYVi4bZThBjykFWdcG9Jj67qOA", "vJdN9kfPJPZhEKd6ggcmUezTGzV68VmtQqBGWvr6");
   </script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/US.css" rel="stylesheet" type="text/css">
- <!-- <link href="css/cover.css" rel="stylesheet"> -->
-
-
 
 </head>
 
 <body>
+  <div id="fb-root"></div>
      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -32,41 +29,49 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="adv.html">Advanced Features</a></li>
-            <li><a href="getstarted.html">Get Started</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li>
-                <!--<fb:login-button autologoutlink="true"></fb:login-button>-->
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope='user_friends'></div>
+                <fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" auto-logout-link="true">
+                </fb:login-button>
               </li>
           </ul>
-
-
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
-  <div class="shiftDownMore">
-      <img src="images/fuzzyturtles.jpg" alt="fuzzy">
-      <h1 style="color:white">splitTab - A fun new way to dine with friends!</h1>
+  <div class="shiftBelowHeader" style="align:inline">
+      <img src="images/splitTabLogoFinal.png" alt="fuzzy" style="float:left; padding-left:50px; padding-top: 5px">
+      <br />
+      <h1 style="color:white; float:center; padding-right:10px">splitTab - A fun new way to dine with friends!</h1>
+      <br />
   </div>
 
    <form name="Split and Tip" method="post" style="color:white">
-        <h1>Total: <input type="text" style="color:black" name="total" id="total" ></h1>
-        <h1>Number of guests: <input type="text" style="color:black" name="numGuests" id="numGuests" onkeyup="check()"></h1>
+       <table style="margin:auto">
+           <tr>
+               <td><h2 style="margin-left:20px;">Total: </h2></td>
+                <td><h2><input type="text" size="10" style="color:black" name="total" id="total" autofocus></h2></td>
+           </tr>
+           <tr>
+                <td><h2>Number of guests: &nbsp</h1></td>
+                <td><h2><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="enableTipBox()"></h2></td>
+            </tr>
+        </table>
         <h2>Desired tip percentage: </h2>
-            <input type="radio" name="tip" id="10" disabled="disabled" onClick="reply_click(this.id)">10%<br>
-            <input type="radio" name="tip" id="15" disabled="disabled" onClick="reply_click(this.id)">15%<br>
-            <input type="radio" name="tip" id="18" disabled="disabled" onClick="reply_click(this.id)">18%<br>
-            <input type="radio" name="tip" id="20" disabled="disabled" onClick="reply_click(this.id)">20%<br>
-    <br>
-    <p>Amount per Guest: <span id='newText'></span> </p>     
-    <!--   <input type="submit" value="Submit">-->
+        <span style="display:inline">
+            <input type="radio" name="tip" id="10" disabled="disabled" onClick="enteredTip(this.id)">&nbsp10%
+            <input type="radio" name="tip" id="15" disabled="disabled" onClick="enteredTip(this.id)">&nbsp15%
+            <input type="radio" name="tip" id="18" disabled="disabled" onClick="enteredTip(this.id)">&nbsp18%
+            <input type="radio" name="tip" id="20" disabled="disabled" onClick="enteredTip(this.id)">&nbsp20%
+        </span>
+       <br /><br />
+       <h2>Amount per Guest: <span id='newText'></span> </h2>     
     </form>
 
     <div id="status"></div>
     <span id='divInfo'></span>
-    <br><br>
+    <br>
     <p style="color:white">Presented by GoogleJump</p>
       <div
         class="fb-like"
@@ -75,10 +80,6 @@
         data-show-faces="true">
       </div>
 
-
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -86,8 +87,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-
-    <!--<script src="/js/docs.min.js"></script>-->
 
 </body>
 </html>
