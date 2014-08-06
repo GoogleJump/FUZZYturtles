@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   $('#otherTipDiv').hide();
   var counter = 2;
 

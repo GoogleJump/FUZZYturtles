@@ -27,6 +27,7 @@ function clickedOther(clicked_id) {
 	tip = tip/100;
 	var x = document.getElementsByName("amtbox"),
         len = x.length;
+
 	for (var i =1; i < len+1; i++) {
 		$('#newText' + i).text(function(){
 			var total = document.getElementById("amtbox"+i).value;

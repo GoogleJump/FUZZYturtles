@@ -4,6 +4,13 @@
   <title>splitTab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="js/calculate.js"></script>
+  <script src="js/cookie.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      DisplayInfo();
+    });
+  </script>
   <script>
       Parse.initialize("8EYSbD4z6Xec8ffYVi4bZThBjykFWdcG9Jj67qOA", "vJdN9kfPJPZhEKd6ggcmUezTGzV68VmtQqBGWvr6");
   </script>
@@ -48,24 +55,53 @@
   </div>
 
    <form name="Split and Tip" method="post" style="color:white">
-       <table style="margin:auto">
+       <table style="margin-left:400px">
            <tr>
-               <td><h2 style="margin-left:20px;">Total: </h2></td>
-                <td><h2><input type="text" size="10" style="color:black" name="total" id="total" autofocus></h2></td>
+               <td><h2 style="margin-left:20px;">Total: </h2></td> <!--  -->
+                <td><h2><input type="text" size="4" style="color:black" name="total" id="total" onblur="$('#Tutorial').hide()" autofocus></h2></td>
+                <td> 
+                   <div id="Tutorial" style="display: none;">
+                    <div name="TutBox1" class="TutBox">
+                      Here you enter the total <br>
+                      amount, including tax. 
+                    </div>
+                    <div class="arrow-left"></div>
+                  </div>
+                </td>
            </tr>
            <tr>
-                <td><h2>Number of guests: &nbsp</h1></td>
-                <td><h2><input type="text" size="10" style="color:black" name="numGuests" id="numGuests" onkeyup="enableTipBox()"></h2></td>
+                <td><h2>Number of guests: &nbsp</h1></td> 
+                <td><h2><input type="text" size="4" style="color:black" name="numGuests" id="numGuests" onfocus="$('#GuestTutorial').show()" onblur="$('#GuestTutorial').hide()"onkeyup="enableTipBox()"></h2></td>
+                <td>
+                  <div id="GuestTutorial" style="display: none;">
+                    <div name="TutBox2" class="TutBox">
+                      Here you enter the number <br>
+                      of guests.
+                    </div>
+                    <div class="arrow-left"></div>
+                  </div>
+                </td>
             </tr>
+
         </table>
         <h2>Desired tip percentage: </h2>
+         
         <span style="display:inline">
-            <input type="radio" name="tip" id="10" disabled="disabled" onClick="enteredTip(this.id)">&nbsp10%
-            <input type="radio" name="tip" id="15" disabled="disabled" onClick="enteredTip(this.id)">&nbsp15%
-            <input type="radio" name="tip" id="18" disabled="disabled" onClick="enteredTip(this.id)">&nbsp18%
-            <input type="radio" name="tip" id="20" disabled="disabled" onClick="enteredTip(this.id)">&nbsp20%
+            <input type="radio" name="tip" id="10" onfocus="$('#TipTutorial').show()" onblur="$('#TipTutorial').hide()" disabled="disabled" onClick="enteredTip(this.id)">&nbsp10%
+            <input type="radio" name="tip" id="15" onfocus="$('#TipTutorial').show()"  disabled="disabled" onClick="enteredTip(this.id)">&nbsp15%
+            <input type="radio" name="tip" id="18" onfocus="$('#TipTutorial').show()" onblur="$('#TipTutorial').hide()" disabled="disabled" onClick="enteredTip(this.id)">&nbsp18%
+            <input type="radio" name="tip" id="20" onfocus="$('#TipTutorial').show()" onblur="$('#TipTutorial').hide()" disabled="disabled" onClick="enteredTip(this.id)">&nbsp20%
+            <input><div id="TipTutorial" style="display: none;">
+              <div name="TutBox3" class="TutBox2">
+                Here you select the amount <br>
+                of tip you'd like to include.
+              </div>
+              <!--<div class="arrow-left"></div>-->
+        </div>   
+            
         </span>
-       <br /><br />
+                
+       <br/><br/>
        <h2>Amount per Guest: <span id='newText'></span> </h2>     
     </form>
 
@@ -73,20 +109,18 @@
     <span id='divInfo'></span>
     <br>
     <p style="color:white">Presented by GoogleJump</p>
-      <div
-        class="fb-like"
-        data-send="true"
-        data-width="450"
-        data-show-faces="true">
-      </div>
+    <div
+      class="fb-like"
+      data-send="true"
+      data-width="450"
+      data-show-faces="true">
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/facebook.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-
 </body>
 </html>
