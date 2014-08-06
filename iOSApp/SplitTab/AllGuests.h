@@ -8,16 +8,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Guest.h"
 
 @interface AllGuests : NSObject {
     NSMutableArray *guests;
     double bill;
-    double tipPercent;
 }
 
 @property (nonatomic, retain) NSMutableArray *guests;
 @property (nonatomic) double bill;
-@property (nonatomic) double tipPercent;
+@property Guest *guestNoCash; //record guest without enough cash
+@property Guest *guestNoChange; //record guest who can't get change
 
 + (id)sharedGuests;
 

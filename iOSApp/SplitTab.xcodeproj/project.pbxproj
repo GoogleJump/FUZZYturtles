@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1D8D0019832C4D003C673F /* GuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D8CFF19832C4D003C673F /* GuestViewController.m */; };
+		9F1D8D031983436F003C673F /* AllGuests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D8D021983436F003C673F /* AllGuests.m */; };
+		9F1D8D0619847F16003C673F /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D8D0519847F16003C673F /* ResultViewController.m */; };
 		9F4E3B8719774EAA0009CD04 /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E3B8619774EAA0009CD04 /* Guest.m */; };
 		9F65925A18F0BFD000427EC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925918F0BFD000427EC4 /* Foundation.framework */; };
 		9F65925C18F0BFD000427EC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925B18F0BFD000427EC4 /* CoreGraphics.framework */; };
@@ -22,7 +25,6 @@
 		9F65927B18F0BFD000427EC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F65925D18F0BFD000427EC4 /* UIKit.framework */; };
 		9F65928318F0BFD000427EC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F65928118F0BFD000427EC4 /* InfoPlist.strings */; };
 		9F65928518F0BFD000427EC4 /* SplitTabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F65928418F0BFD000427EC4 /* SplitTabTests.m */; };
-		EAC422B81989629400A8CA39 /* AllGuests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422B71989629400A8CA39 /* AllGuests.m */; };
 		EAC422BF1989632B00A8CA39 /* GuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BA1989632B00A8CA39 /* GuestViewController.m */; };
 		EAC422C01989632B00A8CA39 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BC1989632B00A8CA39 /* ResultViewController.m */; };
 		EAC422C11989632B00A8CA39 /* Split.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC422BE1989632B00A8CA39 /* Split.m */; };
@@ -39,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F1D8CFE19832C4D003C673F /* GuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestViewController.h; sourceTree = "<group>"; };
+		9F1D8CFF19832C4D003C673F /* GuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestViewController.m; sourceTree = "<group>"; };
+		9F1D8D011983436F003C673F /* AllGuests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllGuests.h; sourceTree = "<group>"; };
+		9F1D8D021983436F003C673F /* AllGuests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllGuests.m; sourceTree = "<group>"; };
+		9F1D8D0419847F16003C673F /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		9F1D8D0519847F16003C673F /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		9F4E3B8519774EAA0009CD04 /* Guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guest.h; sourceTree = "<group>"; };
 		9F4E3B8619774EAA0009CD04 /* Guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guest.m; sourceTree = "<group>"; };
 		9F65925618F0BFD000427EC4 /* SplitTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,8 +145,16 @@
 				EAC422B71989629400A8CA39 /* AllGuests.m */,
 				9F65926818F0BFD000427EC4 /* SplitTabAppDelegate.h */,
 				9F65926918F0BFD000427EC4 /* SplitTabAppDelegate.m */,
+				9F1D8D011983436F003C673F /* AllGuests.h */,
+				9F1D8D021983436F003C673F /* AllGuests.m */,
 				9F65926B18F0BFD000427EC4 /* Main.storyboard */,
+				9F1D8D0419847F16003C673F /* ResultViewController.h */,
+				9F1D8D0519847F16003C673F /* ResultViewController.m */,
+				9F1D8CFE19832C4D003C673F /* GuestViewController.h */,
+				9F1D8CFF19832C4D003C673F /* GuestViewController.m */,
 				9F4E3B8519774EAA0009CD04 /* Guest.h */,
+				9FB3A3A2197CA7EE00D14784 /* Split.h */,
+				9FB3A3A3197CA7EE00D14784 /* Split.m */,
 				9F4E3B8619774EAA0009CD04 /* Guest.m */,
 				9F65926E18F0BFD000427EC4 /* SplitTabViewController.h */,
 				9F65926F18F0BFD000427EC4 /* SplitTabViewController.m */,
@@ -275,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1D8D031983436F003C673F /* AllGuests.m in Sources */,
 				9F65927018F0BFD000427EC4 /* SplitTabViewController.m in Sources */,
 				EAC422C01989632B00A8CA39 /* ResultViewController.m in Sources */,
 				EAC422BF1989632B00A8CA39 /* GuestViewController.m in Sources */,

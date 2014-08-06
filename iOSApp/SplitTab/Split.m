@@ -8,6 +8,7 @@
 
 #import "Split.h"
 #import "Guest.h"
+#import "AllGuests.h"
 
 @implementation Split
 
@@ -20,13 +21,21 @@
 //(array of tallies of each bill type)
 -(BOOL) getGuestsActions:(Guest *)guest totalCash:(NSMutableArray *)totalCash change:(NSMutableArray *)guestChange
 {
+     AllGuests *sharedGuests = [AllGuests sharedGuests];
+    
     //check if guest has enough cash
     int guestCash = 20 * guest.twenties + 10 * guest.tens + 5 * guest.fives + guest.ones;
-    if (guestCash < guest.owed) return false;
+    if (guestCash < guest.owed) {
+        sharedGuests.guestNoCash = guest;
+        return false;
+    }
     
     //check if guest's change can be made
     int change = guestCash - guest.owed;
-    if (![self canMakeExactly:change twenties:[totalCash[0] intValue] tens:[totalCash[1] intValue] fives:[totalCash[2] intValue] ones:[totalCash[3] intValue]]) return false;
+    if (![self canMakeExactly:change twenties:[totalCash[0] intValue] tens:[totalCash[1] intValue] fives:[totalCash[2] intValue] ones:[totalCash[3] intValue]]) {
+        sharedGuests.guestNoChange = guest;
+        return false;
+    }
     guest.change = [self getBillsToPay:totalCash owed:change];
     
     //if a guest is taking change out of what they put in,
