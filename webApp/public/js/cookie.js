@@ -44,12 +44,24 @@ function DisplayInfo() {
 		visit = 0;
 		visit++;
 		$('#Tutorial').css('display', "");
+		FirstTime = true;
 	}
 	else
 	{
 		var div = document.getElementById("Tutorial");
 		//div.style.display = none;  
+		FirstTime = false;
 	}
 	SetCookie("visit", visit, expdate, "/", null, false);
+}
+
+function ShowTutBox2() {
+	if (FirstTime == true) {
+		$('#GuestTutorial').show();
+		FirstTime = false;
+	}
+	else {
+		$('#GuestTutorial').hide();	
+	}
 }
 

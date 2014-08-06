@@ -4,6 +4,7 @@
   <title>splitTab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="js/calculate.js"></script>
+  <script type="text/javascript">var FirstTime = false; </script>
   <script src="js/cookie.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript">
@@ -58,7 +59,7 @@
        <table style="margin-left:400px">
            <tr>
                <td><h2 style="margin-left:20px;">Total: </h2></td> <!--  -->
-                <td><h2><input type="text" size="4" style="color:black" name="total" id="total" onblur="$('#GuestTutorial').show(); $('#Tutorial').hide()" autofocus></h2></td>
+                <td><h2><input type="text" size="4" style="color:black" name="total" id="total" onblur="$('#Tutorial').hide()" autofocus></h2></td>
                 <td> 
                    <div id="Tutorial" style="display: none;">
                     <div name="TutBox1" class="TutBox">
@@ -71,7 +72,7 @@
            </tr>
            <tr>
                 <td><h2>Number of guests: &nbsp</h1></td> 
-                <td><h2><input type="text" size="4" style="color:black" name="numGuests" id="numGuests" onblur="$('#GuestTutorial').hide()"onkeyup="enableTipBox()"></h2></td>
+                <td><h2><input type="text" size="4" style="color:black" name="numGuests" id="numGuests" onfocus="ShowTutBox2()" onblur="$('#GuestTutorial').hide()"onkeyup="enableTipBox()"></h2></td>
                 <td>
                   <div id="GuestTutorial" style="display: none;">
                     <div name="TutBox2" class="TutBox">
