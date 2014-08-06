@@ -55,6 +55,8 @@ div {
 }
 
 .arrow-left {
+  position: relative;
+  top: 26px;
   width: 0; 
   height: 0; 
   margin-left: 4px;
